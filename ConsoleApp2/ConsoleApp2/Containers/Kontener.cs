@@ -1,30 +1,42 @@
 ﻿using ConsoleApp2.Exceptions;
 using ConsoleApp2.Interfaces;
 
-namespace ConsoleApp2;
+namespace ConsoleApp2.Containers;
 
 public abstract class Kontener: IContainer
 {
-    protected double cargoWeight;
-
+    protected double CargoWeight;
+    protected double Height;
+    protected double ContainerWeigh;
+    protected double Depth;
+    protected string FormatNumber;
+    protected double MaxLoad;
+    private static int CurrentContainer;
     public double CargoWight { get;  set; }
-
-    protected Kontener(double cargoWeight)
+    protected Kontener(double cargoWeight,double height,double containerWeigh, string containerType, double maxLoad)
     {
-        CargoWight = cargoWeight;
-    }
+        if (cargoWeight>MaxLoad)
+        {
+            throw new OverfillException();
+        }
 
+        Height = height;
+        CargoWight = cargoWeight;
+        ContainerWeigh = containerWeigh;
+        FormatNumber = "KON-" +  containerType + ++CurrentContainer;
+        CurrentContainer++;
+    }
     public void Load(double weight)
     {
-        if (cargoWeight>100)
+        if (weight+CargoWeight>MaxLoad)
         {
             throw new OverfillException();
         }
     }
-
     public void Unload()
     {
-        throw new NotImplementedException();
+        CargoWight = 0;
+        Console.WriteLine("Wyładowano ładunek. ");
     }
 }
 
