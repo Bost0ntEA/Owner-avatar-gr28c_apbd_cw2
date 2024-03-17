@@ -7,9 +7,9 @@ public abstract class Kontener: IContainer
 {
     protected double CargoWeight;
     protected double Height;
-    protected double ContainerWeigh;
+    protected double ContainerWeight;
     protected double Depth;
-    protected string FormatNumber;
+    public string FormatNumber { get; set; }
     protected double MaxLoad;
     private static int CurrentContainer;
     public double CargoWight { get;  set; }
@@ -22,7 +22,7 @@ public abstract class Kontener: IContainer
 
         Height = height;
         CargoWight = cargoWeight;
-        ContainerWeigh = containerWeigh;
+        ContainerWeight = containerWeigh;
         FormatNumber = "KON-" +  containerType + ++CurrentContainer;
         CurrentContainer++;
     }
@@ -37,6 +37,11 @@ public abstract class Kontener: IContainer
     {
         CargoWight = 0;
         Console.WriteLine("Wyładowano ładunek. ");
+    }
+
+    public void getInfo()
+    {
+        Console.WriteLine("info about kontener");
     }
 }
 
