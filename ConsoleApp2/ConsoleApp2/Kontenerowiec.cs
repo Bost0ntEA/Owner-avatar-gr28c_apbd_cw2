@@ -63,7 +63,7 @@ public class Kontenerowiec
 
     public void RealocateContainerToAnotherKontenerowiec(string number,Kontenerowiec kon1)
     {
-        Kontener konpom = null;
+        Kontener? konpom = null;
         for (int i = 0; i < Containers.Count; i++)
         {
             if (Containers[i].FormatNumber == number)
@@ -84,8 +84,16 @@ public class Kontenerowiec
         {
             if (Containers[i].FormatNumber == number)
             {
-                
+                Containers[i].GetInfo();
             }
         }   
+    }
+    public void GetInfoKontenerowiec()
+    {
+        Console.WriteLine("kontenerowiec contains ");
+        for (int i = 0; i < Containers.Count; i++)
+        {
+            Containers[i].GetInfo();
+        }
     }
 }

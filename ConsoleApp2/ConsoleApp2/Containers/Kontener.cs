@@ -23,7 +23,7 @@ public abstract class Kontener: IContainer
         Height = height;
         CargoWight = cargoWeight;
         ContainerWeight = containerWeigh;
-        FormatNumber = "KON-" +  containerType + ++CurrentContainer;
+        FormatNumber = "KON-" +  containerType + "-" + ++CurrentContainer;
         CurrentContainer++;
     }
     public void Load(double weight)
@@ -39,9 +39,10 @@ public abstract class Kontener: IContainer
         Console.WriteLine("Wyładowano ładunek. ");
     }
 
-    public void getInfo()
+    public void GetInfo()
     {
-        Console.WriteLine("info about kontener");
+        Console.WriteLine("info about kontener " + FormatNumber);
     }
+    
 }
 

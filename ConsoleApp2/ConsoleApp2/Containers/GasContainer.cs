@@ -32,8 +32,10 @@ public class GasContainer: Kontener,IHazardNotifier
             CargoWeight = CargoWeight + weight;
         }
     }
-    public void getInfo()
+    public void GetInfo()
     {
-        Console.WriteLine("info about kontener");
+        base.GetInfo();
+        Console.WriteLine(" Pressure = " + Pressure);
     }
 }
+
